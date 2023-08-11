@@ -1,0 +1,32 @@
+﻿@model DateRangeModel
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success">
+                    @TempData["SuccessMessage"]
+                </div>
+            }
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger">
+                    @TempData["ErrorMessage"]
+                </div>
+            }
+            <form asp-action="LoadQuotes" class="text-center">
+                <div class="form-group">
+                    <label asp-for="StartDate" for="startDate">Начальная дата:</label>
+                    <input asp-for="StartDate" type="date" name="startDate" class="form-control mt-2" required>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EndDate" for="endDate">Конечная дата:</label>
+                    <input asp-for="EndDate" type="date" id="endDate" name="endDate" class="form-control mt-2" required>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Загрузить котировки</button>
+            </form>
+        </div>
+    </div>
+</div>
+
